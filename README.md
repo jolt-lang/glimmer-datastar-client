@@ -12,9 +12,9 @@ elements as data (EDN or JSON hiccup) works with it.
 
 Status: early, but the loop works end to end: a page streamed over SSE, drawn
 through glimmer, patched by `datastar-patch-elements` and
-`datastar-patch-signals`, with actions posting signals back. Still to come: the
-server's EDN mode in glimmer-datastar, demos on real toolkits, transitions (see
-the beads epic `jds-s7a`).
+`datastar-patch-signals`, with actions posting signals back. Still to come:
+helpers in glimmer-datastar for serving elements as data, demos run on real
+toolkits, and transitions.
 
 ```clojure
 (require '[glimmer.core :as ui]
