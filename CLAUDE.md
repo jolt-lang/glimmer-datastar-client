@@ -60,18 +60,37 @@ This protocol applies when ending a Beads implementation workflow. It is subordi
 
 ## Build & Test
 
-_Add your build and test commands here_
-
 ```bash
-# Example:
-# npm install
-# npm test
+jolt test                      # headless; no toolkit or display needed
+# against a local glimmer checkout:
+jolt -Sdeps '{:deps {jolt-lang/glimmer {:local/root "../../jolt-lang/glimmer"}}}' -M:test
 ```
 
 ## Architecture Overview
 
-_Add a brief overview of your project architecture_
+A Datastar-style native thin client on glimmer (see README.md). Namespaces
+under `jolt.datastar.client`:
+
+- `signals` — the signal store: one glimmer ratom per leaf path, RFC 7386
+  merge-patch, snapshots filtered the way Datastar sends signals.
+- `expr` — the EDN expression language: compiled once per form to a fn of an
+  env; actions only where the env says `:action?`.
+- `attrs` — Datastar's data-* attributes: `render-props` per render (reactive),
+  `mount!` per element lifetime (returns a disposer).
+- `codec` — the wire format (EDN default); the only place that parses.
+- `protocol` — SSE events -> patch maps.
+- `store` — the element store: one cell + glimmer component per id, patch
+  modes, lifetimes synced at the end of each patch, parents first.
+- `jolt.datastar.client` — wiring: requests, retries, per-element
+  cancellation, applying patches on the UI thread. Default transport is
+  jolt.http.sse (http-client).
+
+Tests: `e2e-test` runs a real ring-chez-adapter SSE server; the rest are
+headless with an in-memory glimmer backend (`test-backend`).
 
 ## Conventions & Patterns
 
-_Add your project-specific conventions here_
+- Toolkit independent: depend only on `glimmer.core`, `glimmer.ratom` and
+  `glimmer.backend`; never require a backend outside tests or examples.
+- Services the client needs from its host (HTTP, timers, clock) come in through
+  the env (`:fetch`, `:timer`, `:now`) so everything stays testable headless.

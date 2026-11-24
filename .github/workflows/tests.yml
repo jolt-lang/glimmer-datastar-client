@@ -1,0 +1,25 @@
+name: tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install jolt
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          # No GUI libraries: the suite draws through an in-memory glimmer
+          # backend. libssl3 is for jolt-lang/http-client, the SSE transport,
+          # which binds OpenSSL even though the tests only speak plain HTTP.
+          sudo apt-get install -y liblz4-1 zlib1g libtinfo6 libssl3
+          # jolt's own install script owns the release naming and verifies the
+          # checksum, as glimmer's workflow does.
+          curl -fsSL https://raw.githubusercontent.com/jolt-lang/jolt/main/install \
+            | bash -s -- --dir "$HOME/.jolt"
+          echo "$HOME/.jolt" >> "$GITHUB_PATH"
+      # The end-to-end tests stand up real servers (ring-chez-adapter) on
+      # loopback ports chosen by the OS, so they need no network egress beyond
+      # fetching the git dependencies.
+      - name: Test
+        run: JOLT_PWD="$PWD" jolt -M:test
