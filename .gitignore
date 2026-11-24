@@ -5,3 +5,10 @@
 .beads-credential-key
 .beads/proxieddb/
 .jolt/
+
+# local agent and issue-tracker files, kept out of the repo
+.agents/
+.claude/
+.beads/
+.codex/
+AGENTS.md
