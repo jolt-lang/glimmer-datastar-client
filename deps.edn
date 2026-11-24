@@ -40,8 +40,8 @@
                                     :git/sha "3d46afcd1f0c50d26483dd8e20f76cb3433602a6"}
                                    jolt-lang/glimmer-tui
                                    {:git/url "https://github.com/jolt-lang/glimmer-tui"
-                                    :git/tag "v0.3.1"
-                                    :git/sha "3aaa7bd14dbe6780c3b85a97a41c62a9c833756c"}}}}
+                                    :git/tag "v0.3.2"
+                                    :git/sha "a4a2623ecdfb997ddb22c215484b019d08f9ee52"}}}}
 
  :tasks {test "jolt -M:test"
          json-server "jolt -M:examples -m json-counter.server"
