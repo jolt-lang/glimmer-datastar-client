@@ -36,8 +36,8 @@
                                     :git/sha "1ee12aaaf587c5fae22cb94747fe280c20e3380b"}
                                    jolt-lang/glimmer-gtk
                                    {:git/url "https://github.com/jolt-lang/glimmer-gtk"
-                                    :git/tag "v0.2.1"
-                                    :git/sha "d866208cf46d4bfaf82878662ee8163c8845da4c"}
+                                    :git/tag "v0.2.2"
+                                    :git/sha "3d46afcd1f0c50d26483dd8e20f76cb3433602a6"}
                                    jolt-lang/glimmer-tui
                                    {:git/url "https://github.com/jolt-lang/glimmer-tui"
                                     :git/tag "v0.3.1"
