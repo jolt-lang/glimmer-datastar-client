@@ -20,8 +20,8 @@
                                 :git/sha "387cf67ea7b6a8573c6ee6abca6026a45bc3b6bf"}
                                jolt-lang/glimmer-datastar
                                {:git/url "https://github.com/jolt-lang/glimmer-datastar"
-                                :git/tag "v0.1.12"
-                                :git/sha "1ee12aaaf587c5fae22cb94747fe280c20e3380b"}}
+                                :git/tag "v0.1.13"
+                                :git/sha "52a3d441e8aee222fc393e8cbf43eeb354dde0ec"}}
                   :main-opts ["-m" "jolt.datastar.client.test-runner"]}
 
            ;; examples/: a JSON server and its thin client on GTK or the terminal
@@ -32,8 +32,8 @@
                                     :git/sha "387cf67ea7b6a8573c6ee6abca6026a45bc3b6bf"}
                                    jolt-lang/glimmer-datastar
                                    {:git/url "https://github.com/jolt-lang/glimmer-datastar"
-                                    :git/tag "v0.1.12"
-                                    :git/sha "1ee12aaaf587c5fae22cb94747fe280c20e3380b"}
+                                    :git/tag "v0.1.13"
+                                    :git/sha "52a3d441e8aee222fc393e8cbf43eeb354dde0ec"}
                                    jolt-lang/glimmer-gtk
                                    {:git/url "https://github.com/jolt-lang/glimmer-gtk"
                                     :git/tag "v0.2.2"
